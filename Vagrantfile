@@ -1,7 +1,7 @@
 require 'yaml'
 
 # reference: https://www.debugcn.com/en/article/57056373.html
-CONFIG = YAML.load_file(File.join(File.dirname(__FILE__), 'config.yml'))
+CONFIG = YAML.load_file(File.join(File.dirname(__FILE__), 'config.yaml'))
 
 Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
@@ -23,16 +23,15 @@ Vagrant.configure("2") do |config|
         systemctl restart sshd
       SCRIPT
 
-      # chrony configuration
-      cfg.vm.provision "file", source: "chrony.conf", destination: "/tmp/chrony.conf"
+      # ntp configuration
+      cfg.vm.provision "file", source: "ntp.conf", destination: "/tmp/ntp.conf"
       cfg.vm.provision  "shell", inline: <<-SCRIPT
         apt-get update
-        apt-get install chrony -y
-        cp /tmp/chrony.conf /etc/chrony.conf
+        apt-get install ntp -y
+        cp /tmp/ntp.conf /etc/ntp.conf
         timedatectl set-timezone Asia/Seoul
-        systemctl enable chrony
-        systemctl restart chrony
-        timedatectl set-ntp true
+        systemctl enable ntp
+        systemctl restart ntp
       SCRIPT
     end
   end
@@ -54,16 +53,15 @@ Vagrant.configure("2") do |config|
         systemctl restart sshd
       SCRIPT
 
-      # chrony configuration
-      cfg.vm.provision "file", source: "chrony.conf", destination: "/tmp/chrony.conf"
+      # ntp configuration
+      cfg.vm.provision "file", source: "ntp.conf", destination: "/tmp/ntp.conf"
       cfg.vm.provision  "shell", inline: <<-SCRIPT
         apt-get update
-        apt-get install chrony -y
-        cp /tmp/chrony.conf /etc/chrony.conf
+        apt-get install ntp -y
+        cp /tmp/ntp.conf /etc/ntp.conf
         timedatectl set-timezone Asia/Seoul
-        systemctl enable chrony
-        systemctl restart chrony
-        timedatectl set-ntp true
+        systemctl enable ntp
+        systemctl restart ntp
       SCRIPT
     end
   end
@@ -86,16 +84,15 @@ Vagrant.configure("2") do |config|
         systemctl restart sshd
       SCRIPT
 
-      # chrony configuration
-      cfg.vm.provision "file", source: "chrony.conf", destination: "/tmp/chrony.conf"
+      # ntp configuration
+      cfg.vm.provision "file", source: "ntp.conf", destination: "/tmp/ntp.conf"
       cfg.vm.provision  "shell", inline: <<-SCRIPT
         apt-get update
-        apt-get install chrony -y
-        cp /tmp/chrony.conf /etc/chrony.conf
+        apt-get install ntp -y
+        cp /tmp/ntp.conf /etc/ntp.conf
         timedatectl set-timezone Asia/Seoul
-        systemctl enable chrony
-        systemctl restart chrony
-        timedatectl set-ntp true
+        systemctl enable ntp
+        systemctl restart ntp
       SCRIPT
     end
   end
