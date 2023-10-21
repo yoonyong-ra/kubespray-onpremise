@@ -1,42 +1,42 @@
 controlplanes:
-  - name: kubespray-controlpalne-1
-    box: generic/ubuntu1804
-    hostname: kubespray-controlpalne-1
-    ip: 192.168.25.41
+  - name: k8s-controlplane-1
+    box: bento/ubuntu-22.04
+    hostname: k8s-controlpane-1
+    ip: 10.0.2.110
     memory: 4096
     cpu: 4
-  - name: kubespray-controlpalne-2
-    box: generic/ubuntu1804
-    hostname: kubespray-controlpalne-2
-    ip: 192.168.25.42
+  - name: k8s-controlplane-2
+    box: bento/ubuntu-22.04
+    hostname: k8s-controlpalne-2
+    ip: 10.0.2.111
     memory: 4096
     cpu: 4
-  - name: kubespray-controlpalne-3
-    box: generic/ubuntu1804
-    hostname: kubespray-controlpalne-3
-    ip: 192.168.25.43
+  - name: k8s-controlplane-3
+    box: bento/ubuntu-22.04
+    hostname: k8s-controlplane-3
+    ip: 10.0.2.112
     memory: 4096
     cpu: 4
   
 workers:  
-  - name: kubespray-worker-1
-    box: generic/ubuntu1804
-    hostname: kubespray-worker-1
-    ip: 192.168.25.44
+  - name: k8s-worker-1
+    box: bento/ubuntu-22.04
+    hostname: k8s-worker-1
+    ip: 10.0.2.121
     memory: 4096
     cpu: 4
   
-  - name: kubespray-worker-2
-    box: generic/ubuntu1804
-    hostname: kubespray-worker-2
-    ip: 192.168.25.45
+  - name: k8s-worker-2
+    box: bento/ubuntu-22.04
+    hostname: k8s-worker-2
+    ip: 10.0.2.122
     memory: 4096
     cpu: 4
   
 bootstrap:
-  - name: kubespray-bootstrap
-    box: generic/ubuntu1804
-    hostname: kubespray-bootstrap
-    ip: 192.168.25.40
+  - name: k8s-bootstrap
+    box: bento/ubuntu-22.04
+    hostname: k8s-bootstrap
+    ip: 10.0.2.100
     memory: 2048
     cpu: 2
